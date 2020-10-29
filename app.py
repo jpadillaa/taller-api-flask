@@ -22,7 +22,6 @@ class Publicacion_Schema(ma.Schema):
 post_schema = Publicacion_Schema()
 posts_schema = Publicacion_Schema(many = True)
 
-# Líneas nuevas
 class RecursoListarPublicaciones(Resource):
     def get(self):
         publicaciones = Publicacion.query.all()
@@ -36,8 +35,7 @@ class RecursoListarPublicaciones(Resource):
             db.session.add(nueva_publicacion)
             db.session.commit()
             return post_schema.dump(nueva_publicacion)
-
-# Líneas nuevas        
+     
 class RecursoUnaPublicacion(Resource):
     def get(self, id_publicacion):
         publicacion = Publicacion.query.get_or_404(id_publicacion)
